@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Projekt___produkty</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Projekt___produkty.styles.css" asp-append-version="true" />
+</head>
+<body>
+    @if (ViewData["ShowHeader"] == null || (bool)ViewData["ShowHeader"])
+    {
+            <header>
+                <center>
+                    <br><br>
+                    <hr>
+                    <h1>PANEL ADMINISTRACYJNY</h1>
+                    <h2>Obsługa produktów</h2>
+                    <h3>Projekt ASP.NET</h3>
+                        <p><i><b>Ostatnia wizyta: @ViewBag.LastVisit</b></i></p>
+                    <hr>
+                    <br><br>
+                </center>
+            </header>
+    }
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            <center><p>Projekt został wykonany przez: Mateusz Dybaś<br>Numer albumu: 14453</p></center>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

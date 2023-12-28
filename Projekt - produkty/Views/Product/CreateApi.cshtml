@@ -1,0 +1,66 @@
+﻿@model Projekt___produkty.Models.Product
+
+<h1>Utworzenie produktu</h1>
+<form asp-controller="Product" asp-action="CreateApi" method="post">
+    <div class="mb-3">
+        <label asp-for="Name">Nazwa produktu</label>
+        <input class="form-control" asp-for="Name" />
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Price">Cena</label>
+        <input class="form-control" asp-for="Price" />
+        <span class="text-danger" asp-validation-for="Price"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Manufacturer">Producent</label>
+        <input class="form-control" asp-for="Manufacturer" />
+        <span class="text-danger" asp-validation-for="Manufacturer"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ProductionDate">Data produkcji</label>
+        <input class="form-control" asp-for="ProductionDate" />
+        <span class="text-danger" asp-validation-for="ProductionDate"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Description">Opis</label>
+        <input class="form-control" asp-for="Description" />
+        <span class="text-danger" asp-validation-for="Description"></span>
+    </div>
+
+    <button type="submit">Wyślij</button>
+</form>
+
+@section Scripts{
+        <script>
+
+            const submitButton = document.querySelector('button[type="submit"]');
+
+            submitButton.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                const form = event.target.closest('form');
+                const formData = new FormData(form);
+
+                fetch(`/api/products/create`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(Object.fromEntries(formData)),
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Success:', data);
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+            });
+
+        </script>
+}
