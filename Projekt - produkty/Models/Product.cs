@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore.Sqlite;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Projekt___produkty.Models
 {
@@ -34,5 +35,9 @@ namespace Projekt___produkty.Models
         [Required(ErrorMessage = "Sprawdź poprawność opisu produktu!")]
         [Display(Name = "Opis produktu:")]
         public string Description { get; set; }
+
+        [Display(Name = "Malo sztuk na magazynie!")]
+        public bool LowStock { get; set; }
     }
+
 }

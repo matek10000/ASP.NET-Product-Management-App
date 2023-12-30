@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProductData;
 
@@ -10,9 +11,11 @@ using ProductData;
 namespace ProductData.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231230122838_30122023-3")]
+    partial class _301220233
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.13");
@@ -45,8 +48,8 @@ namespace ProductData.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "118c70eb-102c-458a-add3-895353bac9e0",
-                            ConcurrencyStamp = "118c70eb-102c-458a-add3-895353bac9e0",
+                            Id = "f932af2c-268e-4709-8bc1-4d92a9fa35fe",
+                            ConcurrencyStamp = "f932af2c-268e-4709-8bc1-4d92a9fa35fe",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -141,17 +144,17 @@ namespace ProductData.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e8da448c-b319-4812-9394-5d44c6ab11f7",
+                            Id = "8f9af036-128e-44e6-863a-2bf5ffa43806",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "953f2415-f030-4bdd-b46f-fc19ccf16421",
+                            ConcurrencyStamp = "f853b538-928d-42e3-a77d-2650dbc5074c",
                             Email = "mateusz@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MATEUSZ@GMAIL.COM",
                             NormalizedUserName = "MATEK",
-                            PasswordHash = "AQAAAAEAACcQAAAAECo/uyqEOy35Lwmb7yEGJHC6e4EGtQhZTBQvsHtkcCgIZI7hf656ipppKKSYf+CQqg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEN2oUF65D090PHps04e+lTXayrFKi7bs9cJNhooI1lDabgZ/oSA9VVL8nS/Fm5s6wg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5130e710-a6b8-4e1d-a3e8-3704a8f74593",
+                            SecurityStamp = "f307a7cd-ba7c-4cfb-84c6-d834aa51ada8",
                             TwoFactorEnabled = false,
                             UserName = "matek"
                         });
@@ -221,8 +224,8 @@ namespace ProductData.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "e8da448c-b319-4812-9394-5d44c6ab11f7",
-                            RoleId = "118c70eb-102c-458a-add3-895353bac9e0"
+                            UserId = "8f9af036-128e-44e6-863a-2bf5ffa43806",
+                            RoleId = "f932af2c-268e-4709-8bc1-4d92a9fa35fe"
                         });
                 });
 
@@ -285,11 +288,11 @@ namespace ProductData.Migrations
                         {
                             Id = 1,
                             Description = "Najlepsze polskie jablka!",
-                            LowStock = true,
+                            LowStock = false,
                             Manufacturer = "Polskie Jablko",
                             Name = "Jabłko",
                             Price = 5.0m,
-                            ProductionDate = new DateTime(2023, 12, 30, 14, 0, 32, 750, DateTimeKind.Local).AddTicks(6664)
+                            ProductionDate = new DateTime(2023, 12, 30, 13, 28, 38, 90, DateTimeKind.Local).AddTicks(6235)
                         },
                         new
                         {
@@ -299,7 +302,7 @@ namespace ProductData.Migrations
                             Manufacturer = "MarchekoweLove",
                             Name = "Marchewka",
                             Price = 7.0m,
-                            ProductionDate = new DateTime(2023, 12, 30, 14, 0, 32, 750, DateTimeKind.Local).AddTicks(6702)
+                            ProductionDate = new DateTime(2023, 12, 30, 13, 28, 38, 90, DateTimeKind.Local).AddTicks(6278)
                         },
                         new
                         {
@@ -309,7 +312,7 @@ namespace ProductData.Migrations
                             Manufacturer = "GruGruPOL",
                             Name = "Gruszka",
                             Price = 9.0m,
-                            ProductionDate = new DateTime(2023, 12, 30, 14, 0, 32, 750, DateTimeKind.Local).AddTicks(6705)
+                            ProductionDate = new DateTime(2023, 12, 30, 13, 28, 38, 90, DateTimeKind.Local).AddTicks(6281)
                         },
                         new
                         {
@@ -319,7 +322,7 @@ namespace ProductData.Migrations
                             Manufacturer = "GreenPoland",
                             Name = "Sałata",
                             Price = 7.5m,
-                            ProductionDate = new DateTime(2023, 12, 30, 14, 0, 32, 750, DateTimeKind.Local).AddTicks(6708)
+                            ProductionDate = new DateTime(2023, 12, 30, 13, 28, 38, 90, DateTimeKind.Local).AddTicks(6284)
                         },
                         new
                         {
@@ -329,7 +332,7 @@ namespace ProductData.Migrations
                             Manufacturer = "GreenPoland",
                             Name = "Kapusta",
                             Price = 7.0m,
-                            ProductionDate = new DateTime(2023, 12, 30, 14, 0, 32, 750, DateTimeKind.Local).AddTicks(6710)
+                            ProductionDate = new DateTime(2023, 12, 30, 13, 28, 38, 90, DateTimeKind.Local).AddTicks(6286)
                         },
                         new
                         {
@@ -339,7 +342,7 @@ namespace ProductData.Migrations
                             Manufacturer = "GreenPoland",
                             Name = "Rukola",
                             Price = 12.0m,
-                            ProductionDate = new DateTime(2023, 12, 30, 14, 0, 32, 750, DateTimeKind.Local).AddTicks(6712)
+                            ProductionDate = new DateTime(2023, 12, 30, 13, 28, 38, 90, DateTimeKind.Local).AddTicks(6289)
                         },
                         new
                         {
@@ -349,7 +352,7 @@ namespace ProductData.Migrations
                             Manufacturer = "Italiano",
                             Name = "Orzech włoski",
                             Price = 13.0m,
-                            ProductionDate = new DateTime(2023, 12, 30, 14, 0, 32, 750, DateTimeKind.Local).AddTicks(6715)
+                            ProductionDate = new DateTime(2023, 12, 30, 13, 28, 38, 90, DateTimeKind.Local).AddTicks(6291)
                         });
                 });
 

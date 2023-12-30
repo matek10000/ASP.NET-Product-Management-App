@@ -25,5 +25,7 @@ namespace ProductData.Entities
 
         [DataType(DataType.Date)]
         public DateTime ProductionDate { get; set; }
+
+        public bool LowStock { get; set; }
     }
 }

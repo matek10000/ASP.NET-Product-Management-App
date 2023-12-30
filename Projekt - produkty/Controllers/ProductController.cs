@@ -94,6 +94,7 @@ namespace Projekt___produkty.Controllers
             return View();
         }
 
+
         [HttpGet]
         public IActionResult Details(int id)
         {

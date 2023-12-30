@@ -1,6 +1,5 @@
 ﻿@model Projekt___produkty.Models.PagingList<Projekt___produkty.Models.Product>
 
-
 <center>
     <div>
         <a class="btn btn-primary" asp-action="Create" asp-controller="Product">Utwórz produkt</a>
@@ -9,9 +8,9 @@
 
 @if (Model.Data.Count() > 0)
 {
-        <br/>
+        <br />
         <center>
-        <h1>Lista produktów</h1>
+            <h1>Lista produktów</h1>
         </center>
         <div>
             <table class="table">
@@ -31,6 +30,12 @@
                     <th>
                         Opis
                     </th>
+                    <th>
+                        Stan magazynowy
+                    </th>
+                    <th>
+                        Akcje
+                    </th>
                 </tr>
             @foreach (var item in Model.Data)
             {
@@ -49,6 +54,16 @@
                             </td>
                             <td>
                         @item.Description
+                            </td>
+                            <td>
+                        @if (item.LowStock)
+                        {
+                            <span class="text-warning">Stan na magazynie: <b>Mało!!!</b></span>
+                        }
+                        else
+                        {
+                            <span class="text-success">Stan na magazynie: Dużo</span>
+                        }
                             </td>
                             <td>
                                 <a class="btn btn-outline-primary" asp-action="Update" asp-controller="Product" asp-route-id="@item.Id">Edytuj</a>
@@ -101,6 +116,6 @@
                 }
                 </ul>
             </nav>
-                    <a asp-action="Index">Pokaż wszystkie produkty</a>
+            <a asp-action="Index">Pokaż wszystkie produkty</a>
         </div>
 }

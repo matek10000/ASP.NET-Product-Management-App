@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProductData;
 
@@ -10,9 +11,11 @@ using ProductData;
 namespace ProductData.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231230115306_30122023")]
+    partial class _30122023
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.13");
@@ -45,8 +48,8 @@ namespace ProductData.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "118c70eb-102c-458a-add3-895353bac9e0",
-                            ConcurrencyStamp = "118c70eb-102c-458a-add3-895353bac9e0",
+                            Id = "fb2a1460-16e3-4271-b831-46901f016023",
+                            ConcurrencyStamp = "fb2a1460-16e3-4271-b831-46901f016023",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -141,17 +144,17 @@ namespace ProductData.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e8da448c-b319-4812-9394-5d44c6ab11f7",
+                            Id = "701f7573-7879-4ec4-ab73-e99580e97fe8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "953f2415-f030-4bdd-b46f-fc19ccf16421",
+                            ConcurrencyStamp = "86a20db8-4f27-4004-b2ef-f4b067cc5a00",
                             Email = "mateusz@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MATEUSZ@GMAIL.COM",
                             NormalizedUserName = "MATEK",
-                            PasswordHash = "AQAAAAEAACcQAAAAECo/uyqEOy35Lwmb7yEGJHC6e4EGtQhZTBQvsHtkcCgIZI7hf656ipppKKSYf+CQqg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECbSLJ2fuuEQHzLUaUEXBrRQRpGeJmnSgCOQArcy7nTFYGOfWjhsHqe1HAdDe6pADw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5130e710-a6b8-4e1d-a3e8-3704a8f74593",
+                            SecurityStamp = "15cb7a41-aacf-4579-aabf-9691062b56cd",
                             TwoFactorEnabled = false,
                             UserName = "matek"
                         });
@@ -221,8 +224,8 @@ namespace ProductData.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "e8da448c-b319-4812-9394-5d44c6ab11f7",
-                            RoleId = "118c70eb-102c-458a-add3-895353bac9e0"
+                            UserId = "701f7573-7879-4ec4-ab73-e99580e97fe8",
+                            RoleId = "fb2a1460-16e3-4271-b831-46901f016023"
                         });
                 });
 
@@ -257,10 +260,6 @@ namespace ProductData.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("LowStock")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("LowStock");
-
                     b.Property<string>("Manufacturer")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -285,71 +284,64 @@ namespace ProductData.Migrations
                         {
                             Id = 1,
                             Description = "Najlepsze polskie jablka!",
-                            LowStock = true,
                             Manufacturer = "Polskie Jablko",
                             Name = "Jabłko",
                             Price = 5.0m,
-                            ProductionDate = new DateTime(2023, 12, 30, 14, 0, 32, 750, DateTimeKind.Local).AddTicks(6664)
+                            ProductionDate = new DateTime(2023, 12, 30, 12, 53, 6, 232, DateTimeKind.Local).AddTicks(7773)
                         },
                         new
                         {
                             Id = 2,
                             Description = "Zakochaj sie w marchwi!",
-                            LowStock = false,
                             Manufacturer = "MarchekoweLove",
                             Name = "Marchewka",
                             Price = 7.0m,
-                            ProductionDate = new DateTime(2023, 12, 30, 14, 0, 32, 750, DateTimeKind.Local).AddTicks(6702)
+                            ProductionDate = new DateTime(2023, 12, 30, 12, 53, 6, 232, DateTimeKind.Local).AddTicks(7822)
                         },
                         new
                         {
                             Id = 3,
                             Description = "Potrzebna mi gotówka - oto twoja gruszka!",
-                            LowStock = false,
                             Manufacturer = "GruGruPOL",
                             Name = "Gruszka",
                             Price = 9.0m,
-                            ProductionDate = new DateTime(2023, 12, 30, 14, 0, 32, 750, DateTimeKind.Local).AddTicks(6705)
+                            ProductionDate = new DateTime(2023, 12, 30, 12, 53, 6, 232, DateTimeKind.Local).AddTicks(7828)
                         },
                         new
                         {
                             Id = 4,
                             Description = "Produkt z GreenPoland",
-                            LowStock = false,
                             Manufacturer = "GreenPoland",
                             Name = "Sałata",
                             Price = 7.5m,
-                            ProductionDate = new DateTime(2023, 12, 30, 14, 0, 32, 750, DateTimeKind.Local).AddTicks(6708)
+                            ProductionDate = new DateTime(2023, 12, 30, 12, 53, 6, 232, DateTimeKind.Local).AddTicks(7831)
                         },
                         new
                         {
                             Id = 5,
                             Description = "Produkt z GreenPoland",
-                            LowStock = false,
                             Manufacturer = "GreenPoland",
                             Name = "Kapusta",
                             Price = 7.0m,
-                            ProductionDate = new DateTime(2023, 12, 30, 14, 0, 32, 750, DateTimeKind.Local).AddTicks(6710)
+                            ProductionDate = new DateTime(2023, 12, 30, 12, 53, 6, 232, DateTimeKind.Local).AddTicks(7833)
                         },
                         new
                         {
                             Id = 6,
                             Description = "Produkt z GreenPoland",
-                            LowStock = false,
                             Manufacturer = "GreenPoland",
                             Name = "Rukola",
                             Price = 12.0m,
-                            ProductionDate = new DateTime(2023, 12, 30, 14, 0, 32, 750, DateTimeKind.Local).AddTicks(6712)
+                            ProductionDate = new DateTime(2023, 12, 30, 12, 53, 6, 232, DateTimeKind.Local).AddTicks(7836)
                         },
                         new
                         {
                             Id = 7,
                             Description = "Le migliori noci solo con noi!",
-                            LowStock = false,
                             Manufacturer = "Italiano",
                             Name = "Orzech włoski",
                             Price = 13.0m,
-                            ProductionDate = new DateTime(2023, 12, 30, 14, 0, 32, 750, DateTimeKind.Local).AddTicks(6715)
+                            ProductionDate = new DateTime(2023, 12, 30, 12, 53, 6, 232, DateTimeKind.Local).AddTicks(7838)
                         });
                 });
 

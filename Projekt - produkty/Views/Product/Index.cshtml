@@ -1,8 +1,5 @@
 ﻿@model List<Projekt___produkty.Models.Product>
 
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
 @{
 }
 <div>
@@ -30,31 +27,47 @@
             <th>
                 @Html.DisplayNameFor(model => model[0].Description)
             </th>
+            <th>
+                Stan magazynowy
+            </th>
+            <th>
+                Akcje
+            </th>
         </tr>
         @foreach (var item in Model)
         {
-                    <tr>
-                        <td>
+                <tr>
+                    <td>
                     @item.Name
-                        </td>
-                        <td>
+                    </td>
+                    <td>
                     @item.Price
-                        </td>
-                        <td>
+                    </td>
+                    <td>
                     @item.Manufacturer
-                        </td>
-                        <td>
+                    </td>
+                    <td>
                     @item.ProductionDate
-                        </td>
-                        <td>
+                    </td>
+                    <td>
                     @item.Description
-                        </td>
-                        <td>
-                            <a class="btn btn-outline-primary" asp-action="Update" asp-controller="Product" asp-route-id="@item.Id">Edytuj</a>
-                            <a class="btn btn-outline-info" asp-action="Details" asp-controller="Product" asp-route-id="@item.Id">Szczegóły</a>
-                            <a class="btn btn-outline-danger" asp-action="Delete" asp-controller="Product" asp-route-id="@item.Id">Usuń</a>
-                        </td>
-                    </tr>
+                    </td>
+                    <td>
+                    @if (item.LowStock)
+                    {
+                                <span class="text-warning">Stan na magazynie: <b>Mało!!!</b></span>
+                    }
+                    else
+                    {
+                                <span class="text-success">Stan na magazynie: Dużo</span>
+                    }
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-primary" asp-action="Update" asp-controller="Product" asp-route-id="@item.Id">Edytuj</a>
+                        <a class="btn btn-outline-info" asp-action="Details" asp-controller="Product" asp-route-id="@item.Id">Szczegóły</a>
+                        <a class="btn btn-outline-danger" asp-action="Delete" asp-controller="Product" asp-route-id="@item.Id">Usuń</a>
+                    </td>
+                </tr>
         }
     </table>
     <a asp-action="PagedIndex">Wróć do widoku ze stronicowaniem</a>

@@ -12,9 +12,8 @@ namespace ProductData
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-            var folder = Environment.SpecialFolder.LocalApplicationData;
-            var path = Environment.GetFolderPath(folder);
-            DbPath = System.IO.Path.Join(path, "products.db");
+            var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            DbPath = Path.Combine(baseDirectory, "products.db");
         }
 
         public AppDbContext()
@@ -72,18 +71,23 @@ namespace ProductData
             modelBuilder.Entity<ProductEntity>()
                 .HasKey(p => p.Id);
 
+            modelBuilder.Entity<ProductEntity>()
+                .Property(p => p.LowStock)
+                .HasColumnName("LowStock")
+                .IsRequired();
 
             modelBuilder.Entity<ProductEntity>()
                 .HasData(
-                    new ProductEntity { Id = 1, Name = "Jabłko", Price = 5.0m, Manufacturer = "Polskie Jablko", ProductionDate = DateTime.Now, Description = "Najlepsze polskie jablka!" },
-                    new ProductEntity { Id = 2, Name = "Marchewka", Price = 7.0m, Manufacturer = "MarchekoweLove", ProductionDate = DateTime.Now, Description = "Zakochaj sie w marchwi!" },
-                    new ProductEntity { Id = 3, Name = "Gruszka", Price = 9.0m, Manufacturer = "GruGruPOL", ProductionDate = DateTime.Now, Description = "Potrzebna mi gotówka - oto twoja gruszka!" },
-                    new ProductEntity { Id = 4, Name = "Sałata", Price = 7.5m, Manufacturer = "GreenPoland", ProductionDate = DateTime.Now, Description = "Produkt z GreenPoland" },
-                    new ProductEntity { Id = 5, Name = "Kapusta", Price = 7.0m, Manufacturer = "GreenPoland", ProductionDate = DateTime.Now, Description = "Produkt z GreenPoland" },
-                    new ProductEntity { Id = 6, Name = "Rukola", Price = 12.0m, Manufacturer = "GreenPoland", ProductionDate = DateTime.Now, Description = "Produkt z GreenPoland" },
-                    new ProductEntity { Id = 7, Name = "Orzech włoski", Price = 13.0m, Manufacturer = "Italiano", ProductionDate = DateTime.Now, Description = "Le migliori noci solo con noi!" }
+                    new ProductEntity { Id = 1, Name = "Jabłko", Price = 5.0m, Manufacturer = "Polskie Jablko", ProductionDate = DateTime.Now, Description = "Najlepsze polskie jablka!", LowStock = true },
+                    new ProductEntity { Id = 2, Name = "Marchewka", Price = 7.0m, Manufacturer = "MarchekoweLove", ProductionDate = DateTime.Now, Description = "Zakochaj sie w marchwi!", LowStock = false },
+                    new ProductEntity { Id = 3, Name = "Gruszka", Price = 9.0m, Manufacturer = "GruGruPOL", ProductionDate = DateTime.Now, Description = "Potrzebna mi gotówka - oto twoja gruszka!", LowStock = false },
+                    new ProductEntity { Id = 4, Name = "Sałata", Price = 7.5m, Manufacturer = "GreenPoland", ProductionDate = DateTime.Now, Description = "Produkt z GreenPoland", LowStock = false },
+                    new ProductEntity { Id = 5, Name = "Kapusta", Price = 7.0m, Manufacturer = "GreenPoland", ProductionDate = DateTime.Now, Description = "Produkt z GreenPoland", LowStock = false },
+                    new ProductEntity { Id = 6, Name = "Rukola", Price = 12.0m, Manufacturer = "GreenPoland", ProductionDate = DateTime.Now, Description = "Produkt z GreenPoland", LowStock = false },
+                    new ProductEntity { Id = 7, Name = "Orzech włoski", Price = 13.0m, Manufacturer = "Italiano", ProductionDate = DateTime.Now, Description = "Le migliori noci solo con noi!", LowStock = false }
                 );
         }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
