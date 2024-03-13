@@ -20,8 +20,8 @@ Lista technologii:
  
 
 Dane logowania dla admina:
-Login: mateusz@gmail.com
-Hasło: haslo123
+- Login: mateusz@gmail.com
+- Hasło: haslo123
  
 
 Proces uruchomienia aplikacji w wersji deweloperskiej:
